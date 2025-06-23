@@ -1,0 +1,14 @@
+<button
+  (click)="onClick()"
+  class="secondary-btn"
+  [style.color]="textColor"
+  [ngStyle]="{ '--hover-border-color': hoverBorderColor }"
+  [type]="type"
+>
+  <ng-container *ngIf="iconSrc; else showText">
+    <img [src]="iconSrc" alt="icon" class="button-icon" />
+  </ng-container>
+  <ng-template #showText>
+    {{ buttonText }}
+  </ng-template>
+</button>

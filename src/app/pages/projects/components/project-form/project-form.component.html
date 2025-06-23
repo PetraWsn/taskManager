@@ -1,0 +1,53 @@
+<div class="form-wrapper">
+  <form
+    #projectForm="ngForm"
+    (ngSubmit)="saveProject(projectForm)"
+    class="form"
+  >
+    <div>
+      <app-header-list text="Projektnamn"></app-header-list>
+      <input
+        type="text"
+        name="name"
+        [(ngModel)]="newProject.name"
+        placeholder="Projektnamn"
+        required
+      />
+    </div>
+    <div>
+      <app-header-list text="Beskrivning"></app-header-list>
+      <input
+        type="text"
+        name="description"
+        [(ngModel)]="newProject.description"
+        placeholder="Beskrivning"
+        required
+      />
+    </div>
+    <div>
+      <app-header-list text="Deadline"></app-header-list>
+      <input
+        type="date"
+        name="deadline"
+        [(ngModel)]="newProject.deadline"
+        required
+      />
+    </div>
+    <div class="button-container">
+      <app-primary-button
+        buttonText="Spara"
+        type="submit"
+        hoverBorderColor="#C36202"
+        class="btn"
+      ></app-primary-button>
+      <app-secondary-button
+        [buttonText]="viewMode === 'create' ? 'Återgå' : ''"
+        [iconSrc]="
+          viewMode === 'edit' ? '../../../../../assets/icon_delete.svg' : null
+        "
+        (buttonClicked)="onSecondaryButtonClick()"
+        class="btn"
+      ></app-secondary-button>
+    </div>
+  </form>
+</div>

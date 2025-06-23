@@ -1,0 +1,55 @@
+<div class="page-header">
+  <div class="left-content">
+    <button class="round-button" (click)="back()">
+      <img src="assets/icon_back.svg" alt="back" />
+    </button>
+    <div class="header-container">
+      <app-side-h1
+        [headerText]="
+          viewMode === 'edit'
+            ? 'Redigera uppgift'
+            : viewMode === 'create'
+            ? 'Skapa ny uppgift'
+            : viewMode === 'filter'
+            ? 'Filtrera uppgifter'
+            : projectName
+        "
+        class="h1"
+      ></app-side-h1>
+      <!--       <button class="round-button" (click)="back()">
+        <img src="assets/icon_edit2.svg" alt="back" />
+      </button> -->
+    </div>
+    <div *ngIf="viewMode === 'overview'">
+      <span class="Deadline"><strong>Deadline: </strong></span>
+      <span
+        [ngClass]="{
+          'red-project-deadline': isProjectDeadlineApproaching(projectDeadline)
+        }"
+        >{{ projectDeadline }}</span
+      >
+      <p class="Description">{{ projectDescription }}</p>
+      <p class="Tasks">
+        <strong>Antal uppgifter:</strong> {{ projectTaskCount }}
+      </p>
+    </div>
+  </div>
+  <div class="right-content">
+    <div class="button-container">
+      <app-secondary-button
+        *ngIf="viewMode === 'overview'"
+        buttonText="Filtrera"
+        (click)="startFilter()"
+        class="button"
+      ></app-secondary-button>
+      <app-secondary-button
+        *ngIf="viewMode === 'overview'"
+        buttonText="+ Uppgift"
+        textColor="#EC7600"
+        hoverBorderColor="#EC7600"
+        (click)="startCreatingTask()"
+        class="button"
+      ></app-secondary-button>
+    </div>
+  </div>
+</div>

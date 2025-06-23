@@ -1,0 +1,16 @@
+@use "variables" as *;
+
+.page-header {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem 0 2rem;
+  background-color: transparent;
+
+  .h1 {
+    padding: 10px 10px 12.8px 0;
+  }
+}

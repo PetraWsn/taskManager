@@ -1,0 +1,9 @@
+@use "variables" as *;
+
+h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.8rem;
+  color: $orange-header;
+  user-select: none;
+  margin: 0px;
+}

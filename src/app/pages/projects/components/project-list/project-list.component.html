@@ -1,0 +1,72 @@
+<app-content-wrapper [ngClass]="{ 'form-visible': viewMode !== 'overview' }">
+  <app-project-form
+    *ngIf="viewMode === 'create' || viewMode === 'edit'"
+    [project]="selectedProject"
+    [viewMode]="viewMode"
+    (projectSaved)="addOrUpdateProject($event)"
+    (formClosed)="closeForm()"
+    (deletedProject)="updateDeletedProject($event)"
+  ></app-project-form>
+
+  <div *ngIf="viewMode === 'overview'">
+    <div class="header-row">
+      <app-header-list text="Projektnamn" class="col name">
+        <button class="sortButton" (click)="sortBy('name')">
+          <img [src]="getSortIcon('name')" alt="sort icon" class="sort-icon" />
+        </button>
+      </app-header-list>
+      <app-header-list
+        text="Beskrivning"
+        class="col description"
+      ></app-header-list>
+      <app-header-list text="Deadline" class="col deadline">
+        <button class="sortButton" (click)="sortBy('deadline')">
+          <img
+            [src]="getSortIcon('deadline')"
+            alt="sort icon"
+            class="sort-icon"
+          />
+        </button>
+      </app-header-list>
+      <app-header-list text="Uppgifter" class="col tasks">
+        <button class="sortButton" (click)="sortBy('tasks')">
+          <img [src]="getSortIcon('tasks')" alt="sort icon" class="sort-icon" />
+        </button>
+      </app-header-list>
+      <app-header-list text="" class="col edit"></app-header-list>
+    </div>
+
+    <div class="scrollable-content">
+      <div *ngFor="let project of sortedProjects; let i = index" class="row">
+        <div
+          class="clickable-row"
+          [routerLink]="['/project', project.id]"
+          style="cursor: pointer"
+        >
+          <div class="col name project">{{ project.name }}</div>
+          <div class="col description project">
+            {{ project.description }}
+          </div>
+          <div
+            class="col deadline project"
+            [ngClass]="{
+              'red-project-deadline': isProjectDeadlineApproaching(project)
+            }"
+          >
+            {{ project.deadline }}
+          </div>
+          <div class="col tasks project">{{ project.tasks.length }}</div>
+        </div>
+        <div class="col edit project">
+          <button class="editButton" (click)="openFormWithProject(project)">
+            <img
+              class="editIcon"
+              src="../../../../../assets/edit_icon.svg"
+              alt="edit icon"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-content-wrapper>

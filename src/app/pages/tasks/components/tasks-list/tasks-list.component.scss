@@ -1,0 +1,62 @@
+@use "variables" as *;
+
+.form-visible .header-row,
+.form-visible .scrollable-content {
+  display: none; // Dölj rubriker och innehåll när formuläret är synligt
+}
+
+.header-row {
+  box-sizing: border-box;
+  display: flex;
+  background-color: transparent;
+  z-index: 10;
+  padding: 2rem 1rem 0rem 1rem;
+  font-weight: bold;
+
+  .col {
+    box-sizing: border-box;
+    padding: 0 0 0.8rem 0.5rem;
+    margin: 0 10px 0px 10px;
+    border-bottom: 2px solid #bc9e81;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.8rem;
+    z-index: 1;
+
+    &.noStart {
+      width: 33%;
+      font-weight: bolder;
+    }
+    &.started {
+      width: 33%;
+    }
+    &.done {
+      width: 33%;
+    }
+  }
+}
+
+.scrollable-content {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+
+  .col {
+    box-sizing: border-box;
+    padding: 0 0 0.8rem 0.5rem;
+    margin: 0 10px 0px 10px;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.8rem;
+    z-index: 1;
+
+    &.noStart {
+      width: 33%;
+    }
+    &.started {
+      width: 33%;
+    }
+    &.done {
+      width: 33%;
+    }
+  }
+}

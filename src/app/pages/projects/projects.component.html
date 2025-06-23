@@ -1,0 +1,17 @@
+<div class="page-container">
+  <app-project-side-header
+    [viewMode]="viewMode"
+    [projectName]="selectedProject?.name || ''"
+    (createProjectRequested)="openCreateForm()"
+  ></app-project-side-header>
+
+  <app-project-list
+    [viewMode]="viewMode"
+    (editProjectRequested)="openEditForm($event)"
+    [projects]="allProjects()"
+    (formClosed)="closeForm()"
+    [selectedProject]="selectedProject"
+    (projectSaved)="handleProjectSaved($event)"
+    (projectDeleted)="handleProjectDeleted($event)"
+  ></app-project-list>
+</div>

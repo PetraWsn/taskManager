@@ -1,0 +1,78 @@
+@use "variables" as *;
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10%;
+}
+
+.priority-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .priority-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 10px 0 30px 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.8rem;
+
+    .priority-option {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      &.selected {
+        color: $orange-header;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.date-container {
+  display: flex;
+  width: 100%;
+
+  .row1 {
+    margin-right: 20px;
+    width: 100%;
+  }
+
+  .row2 {
+    width: 100%;
+  }
+
+  .textInput {
+    box-sizing: border-box;
+    background-color: #f8f5ed;
+    margin: 10px 0 30px 0;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: text;
+  }
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 2rem 0;
+  box-sizing: border-box;
+
+  .btn {
+    padding: 0.5rem 1rem;
+    width: 110px;
+  }
+}

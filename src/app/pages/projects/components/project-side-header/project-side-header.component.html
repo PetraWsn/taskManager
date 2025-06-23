@@ -1,0 +1,19 @@
+<div class="page-header">
+  <app-side-h1
+    [headerText]="
+      viewMode === 'edit'
+        ? 'Redigera Projekt'
+        : viewMode === 'create'
+        ? 'Skapa nytt Projekt'
+        : 'Mina Projekt'
+    "
+    class="h1"
+  ></app-side-h1>
+  <app-secondary-button
+    *ngIf="viewMode === 'overview'"
+    buttonText="+ Projekt"
+    textColor="#EC7600"
+    hoverBorderColor="#EC7600"
+    (click)="startCreatingProject()"
+  ></app-secondary-button>
+</div>

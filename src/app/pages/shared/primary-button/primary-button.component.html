@@ -1,0 +1,9 @@
+<button
+  (click)="onClick()"
+  class="primary-btn"
+  [style.color]="textColor"
+  [ngStyle]="{ '--hover-border-color': hoverBorderColor }"
+  [type]="type"
+>
+  {{ buttonText }}
+</button>

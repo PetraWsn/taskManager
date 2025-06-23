@@ -1,0 +1,13 @@
+@use "variables" as *;
+
+:host {
+  display: block; // viktigt för att kunna ta emot padding/margin
+}
+
+.default {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  color: $blue-header;
+  margin: 0px;
+  user-select: none;
+}

@@ -1,0 +1,166 @@
+<div class="form-wrapper">
+  <form #tasksForm="ngForm" (ngSubmit)="saveTask(tasksForm)" class="form">
+    <div class="inputs">
+      <div class="row1">
+        <div>
+          <app-header-list text="Projektnamn"></app-header-list>
+          <input
+            type="text"
+            class="textInput"
+            name="name"
+            [(ngModel)]="newTask.name"
+            placeholder="Uppgift"
+            required
+          />
+        </div>
+        <div>
+          <app-header-list text="Beskrivning"></app-header-list>
+          <textarea
+            type="text"
+            class="textareaInput"
+            name="description"
+            [(ngModel)]="newTask.description"
+            rows="10"
+            placeholder="Beskrivning"
+            required
+          ></textarea>
+        </div>
+      </div>
+      <div class="row2">
+        <div>
+          <app-header-list text="Deadline"></app-header-list>
+          <input
+            type="date"
+            class="textInput"
+            name="deadline"
+            [(ngModel)]="newTask.deadline"
+          />
+        </div>
+        <div>
+          <app-header-list text="Prioritet"></app-header-list>
+          <div class="priority-options">
+            <label>
+              <input
+                type="radio"
+                name="priority"
+                [(ngModel)]="newTask.priority"
+                value="none"
+              />
+              Ingen
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="priority"
+                [(ngModel)]="newTask.priority"
+                value="low"
+              />
+              Låg
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="priority"
+                [(ngModel)]="newTask.priority"
+                value="medium"
+              />
+              Medel
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="priority"
+                [(ngModel)]="newTask.priority"
+                value="high"
+              />
+              Hög
+            </label>
+          </div>
+        </div>
+        <div>
+          <app-header-list text="Status"></app-header-list>
+          <div class="status-options">
+            <label>
+              <input
+                type="radio"
+                name="status"
+                [(ngModel)]="newTask.status"
+                value="noStart"
+              />
+              Ej påbörjad
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="status"
+                [(ngModel)]="newTask.status"
+                value="Started"
+              />
+              Pågående
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="status"
+                [(ngModel)]="newTask.status"
+                value="Done"
+              />
+              Klar
+            </label>
+          </div>
+        </div>
+        <div>
+          <app-header-list text="Taggar"></app-header-list>
+          <div class="tag-input-container">
+            <div class="tag-input-wrapper">
+              <span class="hash-prefix">#</span>
+              <input
+                type="input"
+                class="tagInput"
+                name="tagInput"
+                [(ngModel)]="tagInput"
+                placeholder="Skriv en tagg"
+                (keydown.enter)="onEnterPress($event)"
+              />
+            </div>
+            <app-secondary-button
+              buttonText="Lägg till"
+              textColor="#EC7600"
+              hoverBorderColor="#EC7600"
+              (buttonClicked)="addTag()"
+              class="btn"
+            ></app-secondary-button>
+          </div>
+          <div class="tag-list">
+            <span
+              *ngFor="let tag of newTask.tags; let i = index"
+              class="tag"
+              (click)="removeTag(i)"
+            >
+              # {{ tag }}
+              <span
+                class="remove-tag"
+                (click)="removeTag(i); $event.stopPropagation()"
+              >
+                ×</span
+              >
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="button-container">
+      <app-primary-button
+        buttonText="Spara"
+        type="submit"
+        hoverBorderColor="#C36202"
+        class="btn"
+      ></app-primary-button>
+      <app-secondary-button
+        buttonText="Återgå"
+        (buttonClicked)="closeForm()"
+        class="btn"
+      ></app-secondary-button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,60 @@
+@use "variables" as *;
+
+.task-card {
+  font-family: "Poppins", sans-serif;
+  background: #f9f9f9;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.01);
+    cursor: pointer;
+  }
+}
+.header-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+h4 {
+  font-size: 0.8rem;
+  margin: 5px 0 0.2rem 0;
+}
+img {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  user-select: none;
+}
+
+small {
+  font-size: 0.6rem;
+  font-weight: normal;
+}
+
+.fat {
+  font-weight: bold;
+}
+
+.red-deadline {
+  color: red;
+  font-weight: bold;
+}
+
+p {
+  font-size: 0.6rem;
+  margin: 0.8rem 0;
+  font-weight: bold;
+}
+
+.tag {
+  display: inline-block;
+  color: $blue-header;
+  margin: 5px 5px 0 0;
+  padding: 2px 2px;
+  border-radius: 4px;
+  font-size: 0.6rem;
+}

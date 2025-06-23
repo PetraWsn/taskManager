@@ -1,0 +1,33 @@
+<div
+  class="task-card"
+  (click)="onCardClick()"
+  [ngStyle]="{
+    border: '1px solid ' + getPriorityColorBorder(),
+    'background-color': getPriorityColor()
+  }"
+>
+  <div class="header-container">
+    <h4>{{ task.name }}</h4>
+    <img src="" alt="ikon redigera" />
+  </div>
+  <small
+    >Deadline:
+    <span class="fat" [ngClass]="{ 'red-deadline': isDeadlineApproaching() }">{{
+      task.deadline || "---- -- --"
+    }}</span></small
+  ><br />
+  <small
+    >Prio:
+    <span class="fat">{{
+      getTranslatedPriority(task.priority) || "---"
+    }}</span></small
+  ><br />
+
+  <p>{{ task.description }}</p>
+  <br />
+  <div class="tags">
+    <small>Taggar:</small>
+    <br />
+    <span *ngFor="let tag of task.tags" class="tag">#{{ tag }}</span>
+  </div>
+</div>

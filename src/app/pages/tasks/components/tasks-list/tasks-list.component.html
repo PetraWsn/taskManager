@@ -1,0 +1,51 @@
+<app-content-wrapper [ngClass]="{ 'form-visible': viewMode !== 'overview' }">
+  <app-tasks-form
+    *ngIf="viewMode === 'create' || viewMode === 'edit'"
+    [task]="selectedTask"
+    [isEditMode]="viewMode === 'edit'"
+    (taskSaved)="addOrUpdateTask($event)"
+    (formClosed)="closeForm()"
+  ></app-tasks-form>
+  <app-tasks-filter-form
+    *ngIf="viewMode === 'filter'"
+    [currentFilter]="filter"
+    (filterChanged)="onFilterChanged($event)"
+    (formClosed)="closeForm()"
+  ></app-tasks-filter-form>
+
+  <div *ngIf="viewMode === 'overview'">
+    <div class="header-row">
+      <app-header-list
+        text="Ej påbörjade"
+        class="col noStart"
+      ></app-header-list>
+      <app-header-list text="Pågående" class="col started"></app-header-list>
+      <app-header-list text="Klara" class="col done"></app-header-list>
+    </div>
+
+    <div class="scrollable-content">
+      <div class="col noStart">
+        <app-task-card-container
+          *ngFor="let task of notStartedTasks"
+          [task]="task"
+          (editTaskRequested)="openFormWithTask($event)"
+        ></app-task-card-container>
+      </div>
+      <div class="col started">
+        <app-task-card-container
+          *ngFor="let task of startedTasks"
+          [task]="task"
+          (editTaskRequested)="openFormWithTask($event)"
+        ></app-task-card-container>
+      </div>
+      <div class="col done">
+        <app-task-card-container
+          *ngFor="let task of doneTasks"
+          [task]="task"
+          [isDone]="true"
+          (editTaskRequested)="openFormWithTask($event)"
+        ></app-task-card-container>
+      </div>
+    </div>
+  </div>
+</app-content-wrapper>

@@ -1,0 +1,19 @@
+@use "variables" as *;
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; // Gör att sidan alltid fyller hela höjden
+}
+
+.content {
+  flex: 1; // Trycker ner footern till botten när innehållet är kort
+}
+
+.home-background {
+  background-color: $background-dark;
+}
+
+.loggedIn-background {
+  background-color: $background-light;
+}

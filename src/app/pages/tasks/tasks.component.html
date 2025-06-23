@@ -1,0 +1,20 @@
+<div class="page-container">
+  <app-tasks-side-header
+    [viewMode]="viewMode"
+    [projectName]="project()?.name || ''"
+    [projectDescription]="project()?.description || ''"
+    [projectDeadline]="project()?.deadline || ''"
+    [projectTaskCount]="project()?.tasks?.length || 0"
+    (createTaskRequested)="openCreateForm()"
+    (startFilterRequested)="openFilterForm()"
+  ></app-tasks-side-header>
+  <app-tasks-list
+    [viewMode]="viewMode"
+    [selectedTask]="selectedTask"
+    *ngIf="project"
+    [project]="project()"
+    (formClosed)="closeForm()"
+    (taskSaved)="handleTaskSaved($event)"
+    (editTaskRequested)="openEditForm($event)"
+  ></app-tasks-list>
+</div>

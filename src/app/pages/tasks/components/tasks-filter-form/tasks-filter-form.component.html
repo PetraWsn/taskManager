@@ -1,0 +1,80 @@
+<div class="form-wrapper">
+  <form (ngSubmit)="applyFilter()" class="form">
+    <div class="priority-container">
+      <app-header-list text="Prioritet"></app-header-list>
+
+      <div class="priority-options">
+        <label>
+          <input
+            type="radio"
+            name="priority"
+            [(ngModel)]="priority"
+            value="none"
+          />
+          Ingen
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="priority"
+            [(ngModel)]="priority"
+            value="low"
+          />
+          Låg
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="priority"
+            [(ngModel)]="priority"
+            value="medium"
+          />
+          Medel
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="priority"
+            [(ngModel)]="priority"
+            value="high"
+          />
+          Hög
+        </label>
+      </div>
+    </div>
+    <div class="date-container">
+      <div class="row1">
+        <app-header-list text="Från Datum"></app-header-list>
+        <input
+          class="textInput"
+          type="date"
+          [(ngModel)]="deadlineAfter"
+          name="after"
+        />
+      </div>
+      <div class="row2">
+        <app-header-list text="Till Datum"></app-header-list>
+        <input
+          class="textInput"
+          type="date"
+          [(ngModel)]="deadlineBefore"
+          name="before"
+        />
+      </div>
+    </div>
+
+    <div class="button-container">
+      <app-primary-button
+        buttonText="Spara"
+        type="submit"
+        hoverBorderColor="#C36202"
+        class="btn"
+      ></app-primary-button>
+      <app-secondary-button
+        buttonText="Rensa"
+        (buttonClicked)="clearFilter()"
+        class="btn"
+      ></app-secondary-button>
+    </div>
+  </form>
+</div>
