@@ -1,6 +1,6 @@
 import { Component, OnInit, computed, Signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { ProjectListComponent } from './components/project-list/project-list.component';

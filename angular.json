@@ -81,6 +81,9 @@
                 "input": "public"
               }
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/styles", "src/app/styles"]
+            },
             "styles": ["src/styles.scss"],
             "scripts": []
           }
