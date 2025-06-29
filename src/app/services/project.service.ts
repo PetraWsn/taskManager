@@ -21,16 +21,12 @@ export class ProjectService {
       // Läs från sessionStorage om data finns
       const projects: Project[] = JSON.parse(saved);
       this.projectsSignal.set(projects);
-      console.log('ProjectService: Projekt laddade från sessionStorage');
     } else {
       // Annars hämta från API och spara i sessionStorage
       this.http.get<Project[]>(this.apiUrl).subscribe({
         next: (projects) => {
           this.projectsSignal.set(projects);
           sessionStorage.setItem(this.storageKey, JSON.stringify(projects));
-          console.log(
-            'ProjectService: Projekt laddade från API och sparade i sessionStorage'
-          );
         },
         error: (error) => {
           console.error('Kunde inte hämta projekt från API:', error);
