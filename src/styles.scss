@@ -1,4 +1,14 @@
+@import "@nebular/theme/styles/theming";
+@import "@nebular/theme/styles/themes/default";
+@import "@nebular/theme/styles/globals";
+
+// Ange temat genom att sätta variabeln
+$nb-theme: default;
+
+// Installera temat
+@include nb-install();
+
 body {
   box-sizing: border-box;
-  margin: 0px;
+  margin: 0;
 }

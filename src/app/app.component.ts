@@ -3,10 +3,18 @@ import { NgClass } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from './pages/shared/footer/footer.component';
 import { NavComponent } from './pages/shared/nav/nav.component';
+import { NbProgressBarModule, NbLayoutModule } from '@nebular/theme';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FooterComponent, NavComponent, NgClass],
+  imports: [
+    RouterOutlet,
+    FooterComponent,
+    NavComponent,
+    NgClass,
+    NbProgressBarModule,
+    NbLayoutModule,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

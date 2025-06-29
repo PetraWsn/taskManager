@@ -55,7 +55,16 @@
           >
             {{ project.deadline }}
           </div>
-          <div class="col tasks project">{{ project.tasks.length }}</div>
+          <div class="col tasks project">
+            <p class="length">{{ project.tasks.length }}</p>
+            <nb-progress-bar
+              class="nb-progress-bar"
+              [value]="getProjectCompletion(project)"
+              [displayValue]="true"
+              [status]="getProgressStatus(project)"
+              size="tiny"
+            ></nb-progress-bar>
+          </div>
         </div>
         <div class="col edit project">
           <button class="editButton" (click)="openFormWithProject(project)">

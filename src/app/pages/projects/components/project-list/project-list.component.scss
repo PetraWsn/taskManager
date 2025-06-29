@@ -34,10 +34,23 @@
     width: 15%;
   }
   &.tasks {
+    display: flex;
+    flex-direction: column;
     width: 15%;
     padding-left: 0;
     justify-content: center;
     text-align: center;
+  }
+
+  .length {
+    padding: 0px;
+    margin: 0px !important;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .nb-progress-bar {
+    width: 90%;
   }
 
   &.edit {

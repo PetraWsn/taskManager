@@ -1,5 +1,13 @@
 @use "variables" as *;
 
+.form-wrapper {
+  width: 100%;
+}
+
+.form {
+  width: 100%;
+}
+
 .inputs {
   width: 80%;
   justify-self: center;
@@ -161,9 +169,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   width: 100%;
   padding: 0.5rem 0;
   box-sizing: border-box;
+}
 
-  .btn {
-    padding: 0.5rem 1rem;
-    width: 110px;
-  }
+.btn {
+  text-align: center;
+  padding: 0.5rem 1rem;
+  width: 150px !important;
 }

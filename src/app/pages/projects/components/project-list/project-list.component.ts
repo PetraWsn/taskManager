@@ -6,6 +6,7 @@ import { HeaderListComponent } from '../../../shared/header-list/header-list.com
 import { ProjectFormComponent } from '../project-form/project-form.component';
 import { RouterModule } from '@angular/router';
 import { Project } from '../../../../models/project.model';
+import { NbProgressBarModule } from '@nebular/theme';
 
 @Component({
   selector: 'app-project-list',
@@ -17,6 +18,8 @@ import { Project } from '../../../../models/project.model';
     ContentWrapperComponent,
     ProjectFormComponent,
     RouterModule,
+
+    NbProgressBarModule,
   ],
   templateUrl: './project-list.component.html',
   styleUrls: ['./project-list.component.scss'],
@@ -126,6 +129,28 @@ export class ProjectListComponent {
 
         return direction * (aValue > bValue ? 1 : aValue < bValue ? -1 : 0);
       });
+    }
+  }
+
+  getProjectCompletion(project: Project): number {
+    const totalTasks = project.tasks.length;
+    if (totalTasks === 0) return 0;
+
+    const completedTasks = project.tasks.filter(
+      (task) => task.status === 'Done'
+    ).length;
+    return Math.round((completedTasks / totalTasks) * 100);
+  }
+
+  getProgressStatus(project: Project): 'danger' | 'warning' | 'success' {
+    const percentage = this.getProjectCompletion(project);
+
+    if (percentage < 20) {
+      return 'danger';
+    } else if (percentage < 80) {
+      return 'warning';
+    } else {
+      return 'success';
     }
   }
 }

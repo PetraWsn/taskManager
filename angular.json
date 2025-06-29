@@ -27,7 +27,10 @@
             "stylePreprocessorOptions": {
               "includePaths": ["src/styles", "src/app/styles"]
             },
-            "styles": ["src/styles.scss"],
+            "styles": [
+              "src/styles.scss",
+              "node_modules/@nebular/theme/styles/prebuilt/default.css"
+            ],
             "scripts": []
           },
           "configurations": {
